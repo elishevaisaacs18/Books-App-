@@ -1,0 +1,10 @@
+.book {
+  border: 1px solid black;
+  margin: 5vw;
+  padding: 2vw;
+  box-shadow: 7px 10px 7px;
+  transition: all 1s;
+  width: 100%;
+  height: auto;
+}
+

@@ -1,13 +1,12 @@
-
+import styles from "../Book.module.css"
 const Book = (props) => {
   return (
-    <div>
-        {props.title && <p>{props.title}</p>}
+    <div className={styles.book} style={{backgroundColor: props.onShelf ? "navajowhite": "white"}}>
+        {props.likes > 100 ? <h2>{props.title}</h2>: <p>{props.title}</p> }
         <p>{props.author}</p>
         <p>{props.onShelf}</p>
         <p>{props.likes}</p>
-
-      {/* likes, onshelf,author,title */}
+        <p>{props.num}</p>
     </div>
   )
 }
