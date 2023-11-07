@@ -1,12 +1,13 @@
-import './App.css'
-
+import "./App.css";
+import Book from "./";
 function App() {
-
   return (
     <>
-    <h1>hi</h1>    
+      <Book title="harry Potter" author="" onShelf="" likes="" />
+      <Book title="harry Potter" author="" onShelf="" likes="" />
+      <Book title="harry Potter" author="" onShelf="" likes="" />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
