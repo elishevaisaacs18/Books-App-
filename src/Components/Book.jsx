@@ -1,45 +1,45 @@
 import styles from "../Book.module.css";
+import { useState } from "react";
+
 const Book = (props) => {
+  const [likes, setLikes] = useState(props.book.likes);
+  const [onShelf, setOnShelf] = useState(props.book.onShelf);
   const bookTitle =
-    props.book.likes > 100 ? (
-      <h2>{props.book.title}</h2>
-    ) : (
-      <p>{props.book.title}</p>
-    );
+    likes >= 100 ? <h2>{props.book.title}</h2> : <p>{props.book.title}</p>;
+  // Started function
   function bookOnShelf() {
-    return props.book.onShelf === true ? (
+    return onShelf === true ? (
       <p>
-        {props.book.onShelf}
+        {onShelf}
         <button
-          onClick={(e) => {
-            props.onClick;
-            e.target.parentNode.parentNode.style.backgroundColor = "white";
-            e.target.parentNode.remove();
+          onClick={() => {
+            setOnShelf(false);
           }}
         >
           Take Book
         </button>
       </p>
     ) : (
-      <p>{props.book.onShelf}</p>
+      <p>{onShelf}</p>
     );
   }
-  function addLike(e) {
-    e.target.parentNode.children[3].textContent = ++props.book.likes;
+  // finish function
+  function addLike() {
+    setLikes(likes + 1);
   }
 
   return (
     <div
       className={styles.book}
-      style={{ backgroundColor: props.book.onShelf && "navajowhite" }}
+      style={{ backgroundColor: onShelf && "navajowhite" }}
     >
       {bookTitle}
       <p>{props.book.author}</p>
       {bookOnShelf()}
-      <p id="likes">{props.book.likes}</p>
+      <p id="likes"> {likes}</p>
       <p>{props.book.num}</p>
-      <button onClick={() => alert(props.book.text)}>click me</button>
-      <button onClick={(e) => addLike(e)}>Like</button>
+      <button onClick={() => alert(props.book.text)}>Click me</button>
+      <button onClick={addLike}>Likes</button>
     </div>
   );
 };
